@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InnovaBoard · Aprender Ciencias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./aprender.css">
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button class="icon-btn mobile-menu" id="mobile-menu" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <button class="brand" id="brand-home" type="button">
+        <span class="brand-mark"><i class="fa-solid fa-flask-vial"></i></span>
+        <span><strong>Innova</strong><b>Board</b><small>APRENDER · CIENCIAS</small></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Navegación">
+        <button class="nav-pill active" data-view="inicio"><i class="fa-solid fa-house"></i> Inicio</button>
+        <button class="nav-pill" data-view="explorar"><i class="fa-solid fa-compass"></i> Explorar</button>
+        <button class="nav-pill" data-view="misiones"><i class="fa-solid fa-gamepad"></i> Misiones</button>
+        <button class="nav-pill" data-view="progreso"><i class="fa-solid fa-chart-line"></i> Progreso</button>
+      </nav>
+
+      <div class="mode-chip" aria-label="Modo libre activo">
+        <span class="mode-icon"><i class="fa-solid fa-flask-vial"></i></span>
+        <span><b>Modo libre</b><small>Sin registro</small></span>
+      </div>
+    </div>
+  </header>
+
+  <aside class="mobile-drawer" id="mobile-sidebar" aria-hidden="true">
+    <div class="drawer-head"><span>Tu laboratorio</span><button class="icon-btn" id="mobile-close"><i class="fa-solid fa-xmark"></i></button></div>
+    <button data-view="inicio"><i class="fa-solid fa-house"></i> Inicio</button>
+    <button data-view="explorar"><i class="fa-solid fa-compass"></i> Explorar ciencias</button>
+    <button data-view="misiones"><i class="fa-solid fa-gamepad"></i> Mini juegos</button>
+    <button data-view="progreso"><i class="fa-solid fa-chart-line"></i> Mi progreso</button>
+  </aside>
+
+  <main class="app-shell">
+    <!-- INICIO -->
+    <section class="view" id="vista-inicio">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> APRENDER DE OTRA MANERA</span>
+          <h1>La ciencia empieza cuando dices <em>“¿por qué?”</em></h1>
+          <p class="hero-lead">Explora, juega y descubre. Aquí cada tema tiene un personaje que te acompaña.</p>
+          <div class="hero-actions">
+            <button class="btn-main" id="hero-explore"><i class="fa-solid fa-rocket"></i> Explorar ciencias</button>
+            <button class="btn-soft" id="hero-game"><i class="fa-solid fa-gamepad"></i> Jugar una misión</button>
+          </div>
+          <div class="streak-card">
+            <div class="streak-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <div><b id="streak-title">Tu laboratorio está listo</b><small id="streak-text">Tu laboratorio guarda tu avance en este dispositivo.</small></div>
+            <div class="home-progress-mini"><strong id="home-progress">0%</strong><span>avance</span></div>
+          </div>
+        </div>
+
+        <div class="hero-scene" aria-label="Laboratorio interactivo">
+          <div class="scene-glow"></div>
+          <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div>
+          <div class="planet-core"><i class="fa-solid fa-atom"></i><span>WOW</span></div>
+          <div class="tech-console" aria-hidden="true">
+            <div><span class="pulse-dot"></span> SISTEMA ACTIVO</div>
+            <strong>SCIENCE // TECH</strong>
+            <small>IA · ROBÓTICA · DATOS · ELECTRÓNICA</small>
+          </div>
+          <div class="circuit-line cl1"></div><div class="circuit-line cl2"></div><div class="circuit-line cl3"></div>
+          <div class="floating-tag t1"><i class="fa-solid fa-dna"></i> VIDA</div>
+          <div class="floating-tag t2"><i class="fa-solid fa-flask"></i> MATERIA</div>
+          <div class="floating-tag t3"><i class="fa-solid fa-bolt"></i> ENERGÍA</div>
+          <div class="floating-tag t4"><i class="fa-solid fa-earth-americas"></i> PLANETA</div>
+          <div class="scene-note"><span>4 áreas</span><b>12 lecciones</b><small>+ mini juegos</small></div>
+        </div>
+      </div>
+
+      <div class="welcome-mentor">
+        <div class="mentor-avatar"><span>🧑🏽‍🔬</span><i class="online-dot"></i></div>
+        <div class="mentor-bubble"><span>BENJAMIN · GUÍA</span><strong id="home-mentor-title">¡Qué bueno verte por aquí!</strong><p id="home-mentor-message">Toca una misión, elige un área y yo te acompaño.</p></div>
+        <button class="bubble-action" id="talk-home" type="button"><i class="fa-solid fa-comment-dots"></i> Hablar</button>
+      </div>
+
+      <div class="section-title"><div><span>ELIGE TU AVENTURA</span><h2>¿Qué quieres descubrir hoy?</h2></div><button class="text-btn" data-view="explorar">Ver todo <i class="fa-solid fa-arrow-right"></i></button></div>
+      <div class="area-strip" id="home-area-strip"></div>
+
+      <div class="science-tech-panel">
+        <div class="stp-main">
+          <span class="eyebrow"><i class="fa-solid fa-microchip"></i> CIENCIA + TECNOLOGÍA</span>
+          <h2>Explora la ciencia como un laboratorio digital.</h2>
+          <p>Observa, experimenta, juega y conecta ideas con tecnología.</p>
+        </div>
+        <div class="stp-grid">
+          <div><i class="fa-solid fa-atom"></i><b>DESCUBRE</b><small>Conceptos claros</small></div>
+          <div><i class="fa-solid fa-microchip"></i><b>CONSTRUYE</b><small>Piensa como inventor</small></div>
+          <div><i class="fa-solid fa-robot"></i><b>EXPERIMENTA</b><small>Reta tus ideas</small></div>
+        </div>
+      </div>
+
+      <div class="section-title small-gap"><div><span>ACTIVIDADES RÁPIDAS</span><h2>Aprende haciendo</h2></div></div>
+      <div class="feature-grid">
+        <button class="feature-card feature-game" data-view="misiones"><span class="feature-icon"><i class="fa-solid fa-gamepad"></i></span><span><b>Mini juegos</b><small>Practica sin sentir que estudias.</small></span><i class="fa-solid fa-arrow-right"></i></button>
+        <button class="feature-card" id="quick-last"><span class="feature-icon"><i class="fa-solid fa-book-open-reader"></i></span><span><b>Continuar</b><small>Vuelve a lo último que descubriste.</small></span><i class="fa-solid fa-arrow-right"></i></button>
+        <button class="feature-card" data-view="progreso"><span class="feature-icon"><i class="fa-solid fa-trophy"></i></span><span><b>Mi avance</b><small>Ve tus puntos y lecciones.</small></span><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </section>
+
+    <!-- EXPLORAR -->
+    <section class="view" id="vista-explorar" hidden>
+      <div class="page-hero compact-page">
+        <div><button class="back-link" id="explore-back"><i class="fa-solid fa-arrow-left"></i> Inicio</button><span class="eyebrow">LABORATORIO DE CIENCIAS</span><h1>Elige un área. El resto lo descubrimos juntos.</h1></div>
+        <div class="page-orb"><i class="fa-solid fa-microscope"></i><span>Explora</span></div>
+      </div>
+      <div class="character-welcome-banner"><div class="cw-avatar" id="explore-guide-avatar">🧑🏽‍🔬</div><div><span id="explore-guide-name">BENJAMIN</span><strong id="explore-guide-title">Cada área es una nueva misión.</strong><p id="explore-guide-message">Empieza por la que más curiosidad te dé.</p></div><button class="bubble-action" id="talk-explore">Hablar conmigo</button></div>
+      <div class="subject-grid" id="subject-grid"></div>
+    </section>
+
+    <!-- LECCIONES -->
+    <section class="view" id="vista-lecciones" hidden>
+      <button class="back-link" id="btn-volver-materias"><i class="fa-solid fa-arrow-left"></i> Áreas</button>
+      <div class="area-hero" id="area-hero">
+        <div class="area-character"><span id="area-guide-character">🧑🏽‍🔬</span><div class="character-ring"></div></div>
+        <div class="area-hero-copy"><span class="eyebrow" id="area-guide-name">BENJAMIN · BIOLOGÍA</span><h1 id="materia-activa-nombre">Biología</h1><p id="materia-activa-desc">La ciencia de la vida.</p></div>
+        <div class="speech-box"><strong id="area-guide-title">¡Bienvenido a tu laboratorio!</strong><p id="area-guide-message">Elige una misión para comenzar.</p><button class="bubble-action small" id="talk-area">💬 Hablar</button></div>
+      </div>
+      <div class="lesson-progress-row"><div><span>Tu ruta</span><b id="progreso-materia-porcentaje">0%</b></div><div class="progress-track"><i id="progreso-materia-fill"></i></div><span class="lesson-count" id="materia-lecciones-count">0 / 3</span></div>
+      <div class="lesson-list" id="lecciones-lista"></div>
+    </section>
+
+    <!-- CONTENIDO -->
+    <section class="view" id="vista-contenido" hidden>
+      <button class="back-link" id="btn-volver-lecciones"><i class="fa-solid fa-arrow-left"></i> Volver a misiones</button>
+      <div id="contenido-leccion"></div>
+    </section>
+
+    <!-- MISIONES -->
+    <section class="view" id="vista-misiones" hidden>
+      <div class="page-hero compact-page">
+        <div><span class="eyebrow"><i class="fa-solid fa-gamepad"></i> ZONA DE RETOS</span><h1>Mini juegos para practicar</h1><p>1 minuto. 1 reto. 0 aburrimiento.</p></div>
+        <div class="score-pill"><i class="fa-solid fa-star"></i><b id="total-game-points">0</b><span>puntos</span></div>
+      </div>
+      <div class="mission-mentor"><div class="cw-avatar">🧑🏽‍🔬</div><div><span>BENJAMIN DICE</span><strong id="mission-mentor-title">¿Listo para poner a prueba tu curiosidad?</strong><p id="mission-mentor-message">Escoge una ciencia y empieza.</p></div></div>
+      <div class="games-grid" id="games-grid"></div>
+      <div class="game-area" id="game-area" hidden></div>
+    </section>
+
+    <!-- PROGRESO -->
+    <section class="view" id="vista-progreso" hidden>
+      <div class="page-hero compact-page"><div><span class="eyebrow">TU LABORATORIO</span><h1>Tu progreso se ve así 🚀</h1><p>Pequeños descubrimientos = grandes avances.</p></div><div class="big-score"><strong id="global-percent">0%</strong><span>avance</span></div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-icon"><i class="fa-solid fa-book-open"></i></span><b id="global-completed">0</b><small>lecciones</small></div>
+        <div class="stat-card"><span class="stat-icon"><i class="fa-solid fa-star"></i></span><b id="global-game-points">0</b><small>puntos de juego</small></div>
+        <div class="stat-card"><span class="stat-icon"><i class="fa-solid fa-gamepad"></i></span><b id="global-games-played">0</b><small>retos jugados</small></div>
+        <div class="stat-card"><span class="stat-icon"><i class="fa-solid fa-medal"></i></span><b id="global-badges">0</b><small>insignias</small></div>
+      </div>
+      <div class="progress-layout"><div class="progress-panel"><div class="panel-head"><div><span>RUTAS</span><h2>Áreas descubiertas</h2></div></div><div class="route-list" id="route-list"></div></div><div class="lab-tech-panel"><span class="eyebrow"><i class="fa-solid fa-microchip"></i> CONSOLA</span><div class="lab-tech-orb"><i class="fa-solid fa-atom"></i></div><h2>Laboratorio activo</h2><p>Tu avance y tus puntos se guardan automáticamente en este dispositivo.</p><div class="lab-tech-data"><span>LOCAL</span><b>OK</b></div></div></div>
+    </section>
+  </main>
+
+  <div class="toast-wrap" id="toast-container"></div>
+  <script src="./aprender.js"></script>
+</body>
+</html>
