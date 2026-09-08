@@ -1,168 +1,440 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>InnovaBoard · Aprender Ciencias</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="./aprender.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InnovaBoard · Aprender — Área de Ciencias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="aprender.css">
 </head>
 <body>
-  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <button class="icon-btn mobile-menu" id="mobile-menu" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
-      <button class="brand" id="brand-home" type="button">
-        <span class="brand-mark"><i class="fa-solid fa-flask-vial"></i></span>
-        <span><strong>Innova</strong><b>Board</b><small>APRENDER · CIENCIAS</small></span>
+<div class="lab-backdrop" aria-hidden="true">
+  <svg class="lab-svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#32bd0f" stop-opacity="0.45"/>
+        <stop offset="100%" stop-color="#32bd0f" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#77ff33" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#77ff33" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle cx="220" cy="160" r="360" fill="url(#glow1)"/>
+    <circle cx="1400" cy="760" r="420" fill="url(#glow2)"/>
+
+    <g class="orbit-group" transform="translate(1310,190)">
+      <circle r="70" fill="none" stroke="#6fff5c" stroke-opacity="0.35" stroke-width="1.5"/>
+      <ellipse rx="70" ry="26" fill="none" stroke="#6fff5c" stroke-opacity="0.3" stroke-width="1.2" transform="rotate(35)"/>
+      <ellipse rx="70" ry="26" fill="none" stroke="#6fff5c" stroke-opacity="0.3" stroke-width="1.2" transform="rotate(-35)"/>
+      <circle r="6" fill="#a1f98b"/>
+      <circle cx="70" r="4" fill="#a1f98b" opacity="0.8"/>
+      <circle cx="-70" r="4" fill="#a1f98b" opacity="0.8"/>
+    </g>
+
+    <g class="dna-group" transform="translate(120,720)" opacity="0.4">
+      <path d="M0,0 C40,40 -40,80 0,120 C40,160 -40,200 0,240" stroke="#4dfb1a" stroke-width="2.5" fill="none"/>
+      <path d="M50,0 C10,40 90,80 50,120 C10,160 90,200 50,240" stroke="#c8f5bc" stroke-width="2.5" fill="none"/>
+      <line x1="4" y1="10" x2="46" y2="10" stroke="#a1f98b" stroke-width="1.5"/>
+      <line x1="0" y1="60" x2="50" y2="60" stroke="#a1f98b" stroke-width="1.5"/>
+      <line x1="4" y1="110" x2="46" y2="110" stroke="#a1f98b" stroke-width="1.5"/>
+      <line x1="0" y1="160" x2="50" y2="160" stroke="#a1f98b" stroke-width="1.5"/>
+      <line x1="4" y1="210" x2="46" y2="210" stroke="#a1f98b" stroke-width="1.5"/>
+    </g>
+
+    <g class="leaf-group" transform="translate(1480,420) rotate(20)" opacity="0.3">
+      <path d="M0,0 C40,-60 40,-140 0,-190 C-40,-140 -40,-60 0,0 Z" fill="none" stroke="#8ffb7a" stroke-width="2"/>
+      <line x1="0" y1="0" x2="0" y2="-190" stroke="#8ffb7a" stroke-width="1.2"/>
+    </g>
+
+    <g class="particles" opacity="0.5">
+      <circle cx="480" cy="120" r="3" fill="#a1f98b"/>
+      <circle cx="620" cy="90" r="2" fill="#4dfb1a"/>
+      <circle cx="760" cy="150" r="2.5" fill="#a1f98b"/>
+      <circle cx="900" cy="70" r="2" fill="#c8f5bc"/>
+      <circle cx="240" cy="480" r="2" fill="#4dfb1a"/>
+      <circle cx="1080" cy="860" r="2.5" fill="#a1f98b"/>
+      <circle cx="700" cy="900" r="2" fill="#c8f5bc"/>
+    </g>
+  </svg>
+</div>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <a href="#" class="brand" id="brand-link" aria-label="InnovaBoard, ir al inicio">
+      <span class="brand-mark" aria-hidden="true">
+        <i class="fa-solid fa-atom"></i>
+      </span>
+      <span class="brand-name">InnovaBoard</span>
+    </a>
+
+    <div class="navbar-section">
+      <span class="section-eyebrow">Aprender</span>
+      <span class="section-divider" aria-hidden="true">/</span>
+      <span class="section-tag">
+        <i class="fa-solid fa-flask" aria-hidden="true"></i>
+        Área de Ciencias
+      </span>
+    </div>
+
+    <div class="navbar-auth" id="navbar-auth">
+      <div class="navbar-auth-guest" id="navbar-auth-guest">
+        <button class="btn-nav-link" id="btn-abrir-login">Iniciar sesión</button>
+        <button class="btn-nav-cta" id="btn-abrir-registro">
+          <i class="fa-solid fa-user-plus"></i> Registrarme
+        </button>
+      </div>
+      <button class="navbar-user-chip" id="navbar-user-chip" hidden>
+        <span class="navbar-user-avatar" id="navbar-user-avatar">A</span>
+        <span class="navbar-user-name" id="navbar-user-name">Cuenta</span>
+        <i class="fa-solid fa-chevron-down navbar-user-caret"></i>
       </button>
+    </div>
 
-      <nav class="main-nav" aria-label="Navegación">
-        <button class="nav-pill active" data-view="inicio"><i class="fa-solid fa-house"></i> Inicio</button>
-        <button class="nav-pill" data-view="explorar"><i class="fa-solid fa-compass"></i> Explorar</button>
-        <button class="nav-pill" data-view="misiones"><i class="fa-solid fa-gamepad"></i> Misiones</button>
-        <button class="nav-pill" data-view="progreso"><i class="fa-solid fa-chart-line"></i> Progreso</button>
-      </nav>
+    <a href="#" class="btn-back" id="btn-back-inicio">
+      <i class="fa-solid fa-arrow-left-long" aria-hidden="true"></i>
+      Volver al inicio
+    </a>
+  </div>
+</header>
 
-      <div class="mode-chip" aria-label="Modo libre activo">
-        <span class="mode-icon"><i class="fa-solid fa-flask-vial"></i></span>
-        <span><b>Modo libre</b><small>Sin registro</small></span>
+<main>
+
+  <section class="hero" id="vista-hero">
+    <div class="hero-text">
+      <h1>Explora el mundo de las Ciencias</h1>
+      <p class="hero-sub">Descubre, experimenta y comprende los fenómenos que forman parte de nuestro mundo.</p>
+
+      <div class="mascot-bubble mascot-guia" id="hero-mascot">
+        <span class="mascot-avatar mascot-guia-avatar"><i class="fa-solid fa-rocket"></i></span>
+        <p id="hero-mascot-texto">¡Hola! Soy Nova, tu guía. ¿List@ para descubrir algo nuevo?</p>
+      </div>
+
+      <div class="hero-progress-mini" id="hero-progress-mini">
+        <div class="mini-ring">
+          <svg viewBox="0 0 64 64">
+            <circle class="ring-track" cx="32" cy="32" r="27"/>
+            <circle class="ring-fill" id="mini-ring-fill" cx="32" cy="32" r="27"/>
+          </svg>
+          <span class="ring-value" id="mini-ring-value">0%</span>
+        </div>
+        <div class="mini-progress-text">
+          <strong>Tu progreso en Ciencias</strong>
+          <span id="mini-progress-detail">0 de 12 lecciones completadas</span>
+        </div>
       </div>
     </div>
-  </header>
 
-  <aside class="mobile-drawer" id="mobile-sidebar" aria-hidden="true">
-    <div class="drawer-head"><span>Tu laboratorio</span><button class="icon-btn" id="mobile-close"><i class="fa-solid fa-xmark"></i></button></div>
-    <button data-view="inicio"><i class="fa-solid fa-house"></i> Inicio</button>
-    <button data-view="explorar"><i class="fa-solid fa-compass"></i> Explorar ciencias</button>
-    <button data-view="misiones"><i class="fa-solid fa-gamepad"></i> Mini juegos</button>
-    <button data-view="progreso"><i class="fa-solid fa-chart-line"></i> Mi progreso</button>
-  </aside>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-icon-orbit">
+        <i class="fa-solid fa-dna icon-a"></i>
+        <i class="fa-solid fa-vial icon-b"></i>
+        <i class="fa-solid fa-bolt icon-c"></i>
+        <i class="fa-solid fa-earth-americas icon-d"></i>
+        <div class="hero-core">
+          <i class="fa-solid fa-microscope"></i>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <main class="app-shell">
-    <!-- INICIO -->
-    <section class="view" id="vista-inicio">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> APRENDER DE OTRA MANERA</span>
-          <h1>La ciencia empieza cuando dices <em>“¿por qué?”</em></h1>
-          <p class="hero-lead">Explora, juega y descubre. Aquí cada tema tiene un personaje que te acompaña.</p>
-          <div class="hero-actions">
-            <button class="btn-main" id="hero-explore"><i class="fa-solid fa-rocket"></i> Explorar ciencias</button>
-            <button class="btn-soft" id="hero-game"><i class="fa-solid fa-gamepad"></i> Jugar una misión</button>
+  <section class="materias-section" id="vista-materias">
+    <div class="materias-heading">
+      <h2>Elige un área para comenzar</h2>
+      <p>Cada área contiene lecciones completas, pensadas para entender el porqué de las cosas, no solo memorizarlas.</p>
+    </div>
+
+    <div class="materias-grid">
+
+      <article class="materia-card" data-materia="biologia" tabindex="0">
+        <div class="materia-icon bio"><i class="fa-solid fa-dna"></i></div>
+        <h3>Biología</h3>
+        <p>La ciencia de la vida: células, ecosistemas y el funcionamiento del cuerpo humano.</p>
+        <div class="materia-meta">
+          <span><i class="fa-solid fa-book-open"></i> 3 lecciones</span>
+          <span class="materia-progress-tag" data-progress-tag="biologia">0% completado</span>
+        </div>
+        <div class="materia-card-botones">
+          <button class="btn-explorar" data-materia="biologia">
+            Explorar <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-jugar" data-materia-jugar="biologia" title="Practicar con un mini-juego">
+            <i class="fa-solid fa-gamepad"></i>
+          </button>
+        </div>
+      </article>
+
+      <article class="materia-card" data-materia="quimica" tabindex="0">
+        <div class="materia-icon qui"><i class="fa-solid fa-flask-vial"></i></div>
+        <h3>Química</h3>
+        <p>La materia, sus propiedades y las transformaciones que ocurren a nuestro alrededor.</p>
+        <div class="materia-meta">
+          <span><i class="fa-solid fa-book-open"></i> 3 lecciones</span>
+          <span class="materia-progress-tag" data-progress-tag="quimica">0% completado</span>
+        </div>
+        <div class="materia-card-botones">
+          <button class="btn-explorar" data-materia="quimica">
+            Explorar <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-jugar" data-materia-jugar="quimica" title="Practicar con un mini-juego">
+            <i class="fa-solid fa-gamepad"></i>
+          </button>
+        </div>
+      </article>
+
+      <article class="materia-card" data-materia="fisica" tabindex="0">
+        <div class="materia-icon fis"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Física</h3>
+        <p>Movimiento, fuerzas y energía: las reglas que explican cómo se comporta el universo.</p>
+        <div class="materia-meta">
+          <span><i class="fa-solid fa-book-open"></i> 3 lecciones</span>
+          <span class="materia-progress-tag" data-progress-tag="fisica">0% completado</span>
+        </div>
+        <div class="materia-card-botones">
+          <button class="btn-explorar" data-materia="fisica">
+            Explorar <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-jugar" data-materia-jugar="fisica" title="Practicar con un mini-juego">
+            <i class="fa-solid fa-gamepad"></i>
+          </button>
+        </div>
+      </article>
+
+      <article class="materia-card" data-materia="tierra" tabindex="0">
+        <div class="materia-icon tie"><i class="fa-solid fa-earth-americas"></i></div>
+        <h3>Ciencias de la Tierra</h3>
+        <p>La estructura de nuestro planeta, sus fenómenos naturales y el cuidado del ambiente.</p>
+        <div class="materia-meta">
+          <span><i class="fa-solid fa-book-open"></i> 3 lecciones</span>
+          <span class="materia-progress-tag" data-progress-tag="tierra">0% completado</span>
+        </div>
+        <div class="materia-card-botones">
+          <button class="btn-explorar" data-materia="tierra">
+            Explorar <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-jugar" data-materia-jugar="tierra" title="Practicar con un mini-juego">
+            <i class="fa-solid fa-gamepad"></i>
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="lecciones-section" id="vista-lecciones" hidden>
+    <div class="lecciones-topbar">
+      <button class="btn-volver" id="btn-volver-materias">
+        <i class="fa-solid fa-arrow-left"></i> Volver a las materias
+      </button>
+      <div class="materia-activa-info">
+        <span class="materia-activa-icono" id="materia-activa-icono"><i class="fa-solid fa-dna"></i></span>
+        <div>
+          <h2 id="materia-activa-nombre">Biología</h2>
+          <div class="mascot-bubble mascot-inline" id="materia-mascot">
+            <p id="materia-mascot-texto">La ciencia de la vida</p>
           </div>
-          <div class="streak-card">
-            <div class="streak-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-            <div><b id="streak-title">Tu laboratorio está listo</b><small id="streak-text">Tu laboratorio guarda tu avance en este dispositivo.</small></div>
-            <div class="home-progress-mini"><strong id="home-progress">0%</strong><span>avance</span></div>
-          </div>
         </div>
+        <button class="btn-jugar-materia" id="btn-jugar-desde-lecciones" title="Practicar con un mini-juego">
+          <i class="fa-solid fa-gamepad"></i> Practicar
+        </button>
+      </div>
+    </div>
 
-        <div class="hero-scene" aria-label="Laboratorio interactivo">
-          <div class="scene-glow"></div>
-          <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div>
-          <div class="planet-core"><i class="fa-solid fa-atom"></i><span>WOW</span></div>
-          <div class="tech-console" aria-hidden="true">
-            <div><span class="pulse-dot"></span> SISTEMA ACTIVO</div>
-            <strong>SCIENCE // TECH</strong>
-            <small>IA · ROBÓTICA · DATOS · ELECTRÓNICA</small>
-          </div>
-          <div class="circuit-line cl1"></div><div class="circuit-line cl2"></div><div class="circuit-line cl3"></div>
-          <div class="floating-tag t1"><i class="fa-solid fa-dna"></i> VIDA</div>
-          <div class="floating-tag t2"><i class="fa-solid fa-flask"></i> MATERIA</div>
-          <div class="floating-tag t3"><i class="fa-solid fa-bolt"></i> ENERGÍA</div>
-          <div class="floating-tag t4"><i class="fa-solid fa-earth-americas"></i> PLANETA</div>
-          <div class="scene-note"><span>4 áreas</span><b>12 lecciones</b><small>+ mini juegos</small></div>
+    <div class="progreso-materia">
+      <div class="progreso-materia-head">
+        <span>Progreso en esta área</span>
+        <span id="progreso-materia-porcentaje">0%</span>
+      </div>
+      <div class="progreso-barra">
+        <div class="progreso-barra-fill" id="progreso-materia-fill"></div>
+      </div>
+    </div>
+
+    <div class="lecciones-lista" id="lecciones-lista">
+      <!-- Las tarjetas de lección se generan dinámicamente con JavaScript -->
+    </div>
+  </section>
+
+  <section class="contenido-leccion-section" id="vista-contenido" hidden>
+    <div class="lectura-progreso" aria-hidden="true">
+      <div class="lectura-progreso-fill" id="lectura-progreso-fill"></div>
+    </div>
+
+    <button class="btn-volver" id="btn-volver-lecciones">
+      <i class="fa-solid fa-arrow-left"></i> Volver a las lecciones
+    </button>
+
+    <article class="contenido-leccion" id="contenido-leccion">
+      <!-- El contenido completo de la lección se inyecta dinámicamente -->
+    </article>
+  </section>
+
+  <section class="progreso-global-section" id="vista-progreso-global">
+    <div class="progreso-global-card">
+      <div class="progreso-global-head">
+        <div>
+          <h2>Tu progreso en Ciencias</h2>
+          <p>Así vas avanzando en las cuatro áreas del laboratorio de InnovaBoard.</p>
+        </div>
+        <button class="btn-reset" id="btn-reset-progreso" title="Reiniciar todo el progreso guardado">
+          <i class="fa-solid fa-rotate-left"></i> Reiniciar progreso
+        </button>
+      </div>
+
+      <div class="progreso-global-resumen">
+        <div class="resumen-numero">
+          <span id="resumen-porcentaje">0%</span>
+          <small id="resumen-detalle">0 de 12 lecciones</small>
+        </div>
+        <div class="progreso-barra grande">
+          <div class="progreso-barra-fill" id="progreso-global-fill"></div>
         </div>
       </div>
 
-      <div class="welcome-mentor">
-        <div class="mentor-avatar"><span>🧑🏽‍🔬</span><i class="online-dot"></i></div>
-        <div class="mentor-bubble"><span>BENJAMIN · GUÍA</span><strong id="home-mentor-title">¡Qué bueno verte por aquí!</strong><p id="home-mentor-message">Toca una misión, elige un área y yo te acompaño.</p></div>
-        <button class="bubble-action" id="talk-home" type="button"><i class="fa-solid fa-comment-dots"></i> Hablar</button>
+      <div class="progreso-global-materias" id="progreso-global-materias">
+        <!-- Barras individuales por materia, generadas por JS -->
+      </div>
+    </div>
+  </section>
+
+  <section class="auth-section" id="vista-auth" hidden>
+    <div class="auth-card">
+      <div class="auth-card-head">
+        <span class="auth-card-icono"><i class="fa-solid fa-flask-vial"></i></span>
+        <h2>Tu cuenta en InnovaBoard</h2>
+        <p>Regístrate para guardar tu progreso con tu nombre, o inicia sesión si ya tienes una cuenta.</p>
       </div>
 
-      <div class="section-title"><div><span>ELIGE TU AVENTURA</span><h2>¿Qué quieres descubrir hoy?</h2></div><button class="text-btn" data-view="explorar">Ver todo <i class="fa-solid fa-arrow-right"></i></button></div>
-      <div class="area-strip" id="home-area-strip"></div>
+      <div class="auth-tabs">
+        <button class="auth-tab" id="tab-login" data-tab="login">Iniciar sesión</button>
+        <button class="auth-tab" id="tab-registro" data-tab="registro">Crear cuenta</button>
+      </div>
 
-      <div class="science-tech-panel">
-        <div class="stp-main">
-          <span class="eyebrow"><i class="fa-solid fa-microchip"></i> CIENCIA + TECNOLOGÍA</span>
-          <h2>Explora la ciencia como un laboratorio digital.</h2>
-          <p>Observa, experimenta, juega y conecta ideas con tecnología.</p>
+      <form class="auth-form" id="form-login">
+        <label>
+          Correo electrónico
+          <input type="email" id="login-correo" placeholder="tu@correo.com" required>
+        </label>
+        <label>
+          Contraseña
+          <input type="password" id="login-password" placeholder="••••••••" required>
+        </label>
+        <p class="auth-error" id="login-error" hidden></p>
+        <button type="submit" class="btn-auth-submit">
+          Entrar <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
+      </form>
+
+      <form class="auth-form" id="form-registro" hidden>
+        <label>
+          Nombre
+          <input type="text" id="registro-nombre" placeholder="Tu nombre" required>
+        </label>
+        <label>
+          Correo electrónico
+          <input type="email" id="registro-correo" placeholder="tu@correo.com" required>
+        </label>
+        <label>
+          Contraseña
+          <input type="password" id="registro-password" placeholder="Mínimo 4 caracteres" required>
+        </label>
+        <p class="auth-error" id="registro-error" hidden></p>
+        <button type="submit" class="btn-auth-submit">
+          Crear cuenta <i class="fa-solid fa-user-plus"></i>
+        </button>
+      </form>
+
+      <p class="auth-nota">
+        <i class="fa-solid fa-circle-info"></i>
+        Tu cuenta y tu progreso se guardan solo en este navegador.
+      </p>
+    </div>
+  </section>
+
+  <section class="perfil-section" id="vista-perfil" hidden>
+    <div class="perfil-card">
+      <div class="perfil-head">
+        <span class="perfil-avatar" id="perfil-avatar">A</span>
+        <div class="perfil-datos">
+          <h2 id="perfil-nombre">Nombre</h2>
+          <p id="perfil-correo">correo@ejemplo.com</p>
+          <span class="perfil-desde" id="perfil-desde"><i class="fa-solid fa-seedling"></i> Estudiante desde hoy</span>
         </div>
-        <div class="stp-grid">
-          <div><i class="fa-solid fa-atom"></i><b>DESCUBRE</b><small>Conceptos claros</small></div>
-          <div><i class="fa-solid fa-microchip"></i><b>CONSTRUYE</b><small>Piensa como inventor</small></div>
-          <div><i class="fa-solid fa-robot"></i><b>EXPERIMENTA</b><small>Reta tus ideas</small></div>
+        <button class="btn-cerrar-sesion" id="btn-cerrar-sesion">
+          <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+        </button>
+      </div>
+
+      <div class="perfil-stats">
+        <div class="perfil-stat">
+          <span class="perfil-stat-numero" id="perfil-stat-pct">0%</span>
+          <span class="perfil-stat-label">Progreso total</span>
+        </div>
+        <div class="perfil-stat">
+          <span class="perfil-stat-numero" id="perfil-stat-lecciones">0/12</span>
+          <span class="perfil-stat-label">Lecciones completadas</span>
+        </div>
+        <div class="perfil-stat">
+          <span class="perfil-stat-numero" id="perfil-stat-materias">0/4</span>
+          <span class="perfil-stat-label">Áreas dominadas</span>
         </div>
       </div>
 
-      <div class="section-title small-gap"><div><span>ACTIVIDADES RÁPIDAS</span><h2>Aprende haciendo</h2></div></div>
-      <div class="feature-grid">
-        <button class="feature-card feature-game" data-view="misiones"><span class="feature-icon"><i class="fa-solid fa-gamepad"></i></span><span><b>Mini juegos</b><small>Practica sin sentir que estudias.</small></span><i class="fa-solid fa-arrow-right"></i></button>
-        <button class="feature-card" id="quick-last"><span class="feature-icon"><i class="fa-solid fa-book-open-reader"></i></span><span><b>Continuar</b><small>Vuelve a lo último que descubriste.</small></span><i class="fa-solid fa-arrow-right"></i></button>
-        <button class="feature-card" data-view="progreso"><span class="feature-icon"><i class="fa-solid fa-trophy"></i></span><span><b>Mi avance</b><small>Ve tus puntos y lecciones.</small></span><i class="fa-solid fa-arrow-right"></i></button>
+      <h3 class="perfil-subtitulo">Progreso por área</h3>
+      <div class="progreso-global-materias" id="perfil-materias">
+        <!-- Generado por JavaScript -->
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- EXPLORAR -->
-    <section class="view" id="vista-explorar" hidden>
-      <div class="page-hero compact-page">
-        <div><button class="back-link" id="explore-back"><i class="fa-solid fa-arrow-left"></i> Inicio</button><span class="eyebrow">LABORATORIO DE CIENCIAS</span><h1>Elige un área. El resto lo descubrimos juntos.</h1></div>
-        <div class="page-orb"><i class="fa-solid fa-microscope"></i><span>Explora</span></div>
+  <section class="juego-section" id="vista-juego" hidden>
+    <button class="btn-volver" id="btn-volver-desde-juego">
+      <i class="fa-solid fa-arrow-left"></i> Volver
+    </button>
+
+    <div class="juego-card">
+      <div class="juego-header">
+        <span class="mascot-avatar" id="juego-mascot-avatar"><i class="fa-solid fa-dna"></i></span>
+        <div class="juego-header-info">
+          <h2 id="juego-titulo">Practica: Biología</h2>
+          <div class="juego-progreso-dots" id="juego-progreso-dots"></div>
+        </div>
+        <div class="juego-puntaje" id="juego-puntaje"><i class="fa-solid fa-star"></i> 0</div>
       </div>
-      <div class="character-welcome-banner"><div class="cw-avatar" id="explore-guide-avatar">🧑🏽‍🔬</div><div><span id="explore-guide-name">BENJAMIN</span><strong id="explore-guide-title">Cada área es una nueva misión.</strong><p id="explore-guide-message">Empieza por la que más curiosidad te dé.</p></div><button class="bubble-action" id="talk-explore">Hablar conmigo</button></div>
-      <div class="subject-grid" id="subject-grid"></div>
-    </section>
 
-    <!-- LECCIONES -->
-    <section class="view" id="vista-lecciones" hidden>
-      <button class="back-link" id="btn-volver-materias"><i class="fa-solid fa-arrow-left"></i> Áreas</button>
-      <div class="area-hero" id="area-hero">
-        <div class="area-character"><span id="area-guide-character">🧑🏽‍🔬</span><div class="character-ring"></div></div>
-        <div class="area-hero-copy"><span class="eyebrow" id="area-guide-name">BENJAMIN · BIOLOGÍA</span><h1 id="materia-activa-nombre">Biología</h1><p id="materia-activa-desc">La ciencia de la vida.</p></div>
-        <div class="speech-box"><strong id="area-guide-title">¡Bienvenido a tu laboratorio!</strong><p id="area-guide-message">Elige una misión para comenzar.</p><button class="bubble-action small" id="talk-area">💬 Hablar</button></div>
+      <div class="juego-pregunta-wrap" id="juego-pregunta-wrap">
+        <p class="juego-pregunta" id="juego-pregunta-texto">¿Pregunta?</p>
+        <div class="juego-opciones" id="juego-opciones"></div>
+
+        <div class="juego-feedback" id="juego-feedback" hidden>
+          <p id="juego-feedback-texto"></p>
+          <button class="btn-auth-submit" id="btn-juego-siguiente">
+            Siguiente <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
-      <div class="lesson-progress-row"><div><span>Tu ruta</span><b id="progreso-materia-porcentaje">0%</b></div><div class="progress-track"><i id="progreso-materia-fill"></i></div><span class="lesson-count" id="materia-lecciones-count">0 / 3</span></div>
-      <div class="lesson-list" id="lecciones-lista"></div>
-    </section>
 
-    <!-- CONTENIDO -->
-    <section class="view" id="vista-contenido" hidden>
-      <button class="back-link" id="btn-volver-lecciones"><i class="fa-solid fa-arrow-left"></i> Volver a misiones</button>
-      <div id="contenido-leccion"></div>
-    </section>
-
-    <!-- MISIONES -->
-    <section class="view" id="vista-misiones" hidden>
-      <div class="page-hero compact-page">
-        <div><span class="eyebrow"><i class="fa-solid fa-gamepad"></i> ZONA DE RETOS</span><h1>Mini juegos para practicar</h1><p>1 minuto. 1 reto. 0 aburrimiento.</p></div>
-        <div class="score-pill"><i class="fa-solid fa-star"></i><b id="total-game-points">0</b><span>puntos</span></div>
+      <div class="juego-resultado" id="juego-resultado" hidden>
+        <span class="juego-resultado-emoji" id="juego-resultado-emoji">🎉</span>
+        <h3 id="juego-resultado-titulo">¡Buen trabajo!</h3>
+        <p id="juego-resultado-texto">Acertaste 4 de 5</p>
+        <div class="juego-resultado-botones">
+          <button class="btn-auth-submit" id="btn-juego-repetir">
+            <i class="fa-solid fa-rotate-right"></i> Jugar de nuevo
+          </button>
+          <button class="btn-volver" id="btn-juego-volver-materia">Volver a la materia</button>
+        </div>
       </div>
-      <div class="mission-mentor"><div class="cw-avatar">🧑🏽‍🔬</div><div><span>BENJAMIN DICE</span><strong id="mission-mentor-title">¿Listo para poner a prueba tu curiosidad?</strong><p id="mission-mentor-message">Escoge una ciencia y empieza.</p></div></div>
-      <div class="games-grid" id="games-grid"></div>
-      <div class="game-area" id="game-area" hidden></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PROGRESO -->
-    <section class="view" id="vista-progreso" hidden>
-      <div class="page-hero compact-page"><div><span class="eyebrow">TU LABORATORIO</span><h1>Tu progreso se ve así 🚀</h1><p>Pequeños descubrimientos = grandes avances.</p></div><div class="big-score"><strong id="global-percent">0%</strong><span>avance</span></div></div>
-      <div class="stats-grid">
-        <div class="stat-card"><span class="stat-icon"><i class="fa-solid fa-book-open"></i></span><b id="global-completed">0</b><small>lecciones</small></div>
-        <div class="stat-card"><span class="stat-icon"><i class="fa-solid fa-star"></i></span><b id="global-game-points">0</b><small>puntos de juego</small></div>
-        <div class="stat-card"><span class="stat-icon"><i class="fa-solid fa-gamepad"></i></span><b id="global-games-played">0</b><small>retos jugados</small></div>
-        <div class="stat-card"><span class="stat-icon"><i class="fa-solid fa-medal"></i></span><b id="global-badges">0</b><small>insignias</small></div>
-      </div>
-      <div class="progress-layout"><div class="progress-panel"><div class="panel-head"><div><span>RUTAS</span><h2>Áreas descubiertas</h2></div></div><div class="route-list" id="route-list"></div></div><div class="lab-tech-panel"><span class="eyebrow"><i class="fa-solid fa-microchip"></i> CONSOLA</span><div class="lab-tech-orb"><i class="fa-solid fa-atom"></i></div><h2>Laboratorio activo</h2><p>Tu avance y tus puntos se guardan automáticamente en este dispositivo.</p><div class="lab-tech-data"><span>LOCAL</span><b>OK</b></div></div></div>
-    </section>
-  </main>
+</main>
 
-  <div class="toast-wrap" id="toast-container"></div>
-  <script src="./aprender.js"></script>
+<div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+<script src="aprender.js"></script>
 </body>
 </html>
